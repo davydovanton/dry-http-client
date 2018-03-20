@@ -1,8 +1,6 @@
 # Dry::Http::Client
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dry/http/client`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Fundctional HTTP client based on dry stack. Inspired by [serradura/request_via](https://github.com/serradura/request_via)
 
 ## Installation
 
@@ -22,13 +20,47 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+client = Dry::Http::Client.new(host: 'https://example.com')
 
-## Development
+client.get # GET https://example.com and return dry-result monad
+client.get(params: { a: 1 }, headers: { 'Header-Name' => 'Header-Value' })
+# => Success([200, { ... }])
+# => Failure([400, { ... }])
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# or dry-struct
+options = Dry::Http::Client::Options.new(params: { a: 1 }, headers: { 'Header-Name' => 'Header-Value' })
+client.get(options)
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+client.get('foo', params: { a: 1 })
+client.get('/bar', headers: { 'User-Agent' => 'REST Example' })
+
+# Supported HTTP methods:
+# client.get
+# client.head
+# client.post
+# client.put
+# client.delete
+# client.options
+# client.trace
+# client.patch
+
+RequestVia::Client.new(host: 'example.com', port: 3000, open_timeout: 10, read_timeout: 100)
+```
+
+### Response Struct
+```ruby
+module Types
+  include Dry::Types.module
+end
+
+class UserResponseStruct < Dry::Struct
+  attribute :name, Types::String
+  attribute :age,  Types::Coercible::Int
+end
+
+client.get('users/1', success_struct: UserResponseStruct) # => Success([200, UserResponseStruct.new(name: 'Anton', age: '21')])
+```
 
 ## Contributing
 
