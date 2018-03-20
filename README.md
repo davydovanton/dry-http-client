@@ -1,5 +1,7 @@
 # Dry::Http::Client
 
+**Proof of Concept**
+
 Fundctional HTTP client based on dry stack. Inspired by [serradura/request_via](https://github.com/serradura/request_via)
 
 ## Installation
@@ -45,7 +47,7 @@ client.get('/bar', headers: { 'User-Agent' => 'REST Example' })
 # client.trace
 # client.patch
 
-RequestVia::Client.new(host: 'example.com', port: 3000, open_timeout: 10, read_timeout: 100)
+Dry::Http::Client.new(host: 'example.com', port: 3000, open_timeout: 10, read_timeout: 100)
 ```
 
 ### Response Struct
