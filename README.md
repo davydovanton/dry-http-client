@@ -48,6 +48,9 @@ client.get('/bar', headers: { 'User-Agent' => 'REST Example' })
 # client.patch
 
 Dry::Http::Client.new(host: 'example.com', port: 3000, open_timeout: 10, read_timeout: 100)
+
+# or with default params
+Dry::Http::Client.new(host: 'example.com', params: { key: '...' }, headers: { 'Header-Name' => 'Header-Value' })
 ```
 
 ### Response Struct
