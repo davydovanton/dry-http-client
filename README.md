@@ -27,8 +27,8 @@ client = Dry::Http::Client.new(host: 'https://example.com')
 
 client.get # GET https://example.com and return dry-result monad
 client.get(params: { a: 1 }, headers: { 'Header-Name' => 'Header-Value' })
-# => Success([200, { ... }])
-# => Failure([400, { ... }])
+# => Success(request_object)
+# => Success(request_object)
 
 # or dry-struct
 options = Dry::Http::Client::Options.new(params: { a: 1 }, headers: { 'Header-Name' => 'Header-Value' })
