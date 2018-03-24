@@ -7,14 +7,14 @@ module Dry
     module Client
       module Request
         class Get
+          include Dry::Monads::Result::Mixin
           include Dry::Monads::Try::Mixin
 
           def call(url, options)
             Try(URI::InvalidURIError) { URI.parse(url) }.bind do |uri|
               request = Net::HTTP::Get.new(uri.request_uri)
               yield request if block_given?
-              # res.is_a?(Net::HTTPSuccess)
-              http(uri).request(request)
+              to_result http(uri).request(request)
             end
           end
 
@@ -31,6 +31,10 @@ module Dry
               http.use_ssl = true
               http.verify_mode = OpenSSL::SSL::VERIFY_NONE
             end
+          end
+
+          def to_result(response)
+            response.is_a?(Net::HTTPSuccess) ? Success(response) : Failure(response)
           end
         end
       end

@@ -15,12 +15,14 @@ RSpec.describe Dry::Http::Client::Request::Get do
   end
 
   context 'when request is success' do
-    it { VCR.use_cassette("github_user_success") { expect(subject.code).to eq '200' } }
+    it { VCR.use_cassette("github_user_success") { expect(subject).to be_success } }
+    it { VCR.use_cassette("github_user_success") { expect(subject.value!.code).to eq '200' } }
   end
 
   context 'when request is failure' do
     let(:url) { 'https://api.github.com/sers/1' }
 
-    it { VCR.use_cassette("github_user_failure") { expect(subject.code).to eq '404' } }
+    it { VCR.use_cassette("github_user_failure") { expect(subject).to be_failure } }
+    it { VCR.use_cassette("github_user_failure") { expect(subject.failure.code).to eq '404' } }
   end
 end
