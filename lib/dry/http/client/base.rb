@@ -1,3 +1,5 @@
+require 'dry/http/client/request/get'
+
 module Dry
   module Http
     module Client

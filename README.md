@@ -37,6 +37,12 @@ client.get(options)
 client.get('foo', params: { a: 1 })
 client.get('/bar', headers: { 'User-Agent' => 'REST Example' })
 
+# also, you can put block in to request:
+client.get('foo', params: { a: 1 }) do |request|
+  request['Header'] = 'Value'
+end
+
+
 # Supported HTTP methods:
 # client.get
 # client.head
