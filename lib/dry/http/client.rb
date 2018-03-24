@@ -1,9 +1,12 @@
-require "dry/http/client/version"
+require 'dry/http/client/base'
+require 'dry/http/client/version'
 
 module Dry
   module Http
     module Client
-      # Your code goes here...
+      def self.new(host, options = {})
+        Base.new(host, options)
+      end
     end
   end
 end
