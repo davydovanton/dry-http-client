@@ -6,6 +6,12 @@ module Dry
           @host = host
           @options = options
         end
+
+        def get(options = {})
+        end
+
+        def post(options = {})
+        end
       end
     end
   end
