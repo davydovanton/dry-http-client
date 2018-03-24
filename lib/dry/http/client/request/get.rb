@@ -18,11 +18,15 @@ module Dry
 
           def http(uri)
             http = Net::HTTP.new(uri.host, uri.port)
+            https!(uri, http)
+            http
+          end
+
+          def https!(uri, http)
             if uri.scheme == 'https'
               http.use_ssl = true
               http.verify_mode = OpenSSL::SSL::VERIFY_NONE
             end
-            http
           end
         end
       end
