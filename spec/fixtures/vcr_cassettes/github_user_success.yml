@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Sat, 24 Mar 2018 10:13:59 GMT
+      - Sat, 24 Mar 2018 10:16:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -31,7 +31,7 @@ http_interactions:
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '53'
+      - '51'
       X-Ratelimit-Reset:
       - '1521889628'
       Cache-Control:
@@ -62,13 +62,13 @@ http_interactions:
       Content-Security-Policy:
       - default-src 'none'
       X-Runtime-Rack:
-      - '0.022078'
+      - '0.024973'
       X-Github-Request-Id:
-      - D293:7316:340378C:69FC99F:5AB624E6
+      - D341:7312:286798C:590FBBB:5AB62575
     body:
       encoding: ASCII-8BIT
       string: '{"login":"1","id":1825798,"avatar_url":"https://avatars2.githubusercontent.com/u/1825798?v=4","gravatar_id":"","url":"https://api.github.com/users/1","html_url":"https://github.com/1","followers_url":"https://api.github.com/users/1/followers","following_url":"https://api.github.com/users/1/following{/other_user}","gists_url":"https://api.github.com/users/1/gists{/gist_id}","starred_url":"https://api.github.com/users/1/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/1/subscriptions","organizations_url":"https://api.github.com/users/1/orgs","repos_url":"https://api.github.com/users/1/repos","events_url":"https://api.github.com/users/1/events{/privacy}","received_events_url":"https://api.github.com/users/1/received_events","type":"User","site_admin":false,"name":"Michael","company":null,"blog":"","location":"San
         Francisco, CA","email":null,"hireable":null,"bio":null,"public_repos":3,"public_gists":0,"followers":13,"following":0,"created_at":"2012-06-07T06:10:07Z","updated_at":"2018-03-20T19:04:33Z"}'
     http_version: 
-  recorded_at: Sat, 24 Mar 2018 10:13:56 GMT
+  recorded_at: Sat, 24 Mar 2018 10:16:18 GMT
 recorded_with: VCR 4.0.0
