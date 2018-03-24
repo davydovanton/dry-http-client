@@ -1,17 +1,21 @@
 require 'uri'
 require 'net/https'
+require 'dry-monads'
 
 module Dry
   module Http
     module Client
       module Request
         class Get
-          def call(url, options)
-            uri = URI.parse(url)
-            request = Net::HTTP::Get.new(uri.request_uri)
-            yield request if block_given?
+          include Dry::Monads::Try::Mixin
 
-            http(uri).request(request)
+          def call(url, options)
+            Try(URI::InvalidURIError) { URI.parse(url) }.bind do |uri|
+              request = Net::HTTP::Get.new(uri.request_uri)
+              yield request if block_given?
+              # res.is_a?(Net::HTTPSuccess)
+              http(uri).request(request)
+            end
           end
 
         private
