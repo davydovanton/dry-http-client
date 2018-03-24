@@ -8,8 +8,9 @@
 - [ ] GET request
   - [ ] Allow to use params
   - [ ] Allow to use headers
-  - [ ] Wrap result to dry-result monad
-  - [ ] Wrap URI parse to dry-try monad
+  - [x] Wrap result to dry-result monad
+  - [x] Wrap URI parse to dry-try monad
+  - [ ] Wrap request to try monad
 
 - [ ] POST request
   - [ ] Allow to use params
