@@ -1,7 +1,7 @@
 # Release 0.1
 
 - [ ] Client
-  - [ ] Allow to use base url
+  - [x] Allow to use base url
   - [ ] Support to set port and timeouts values
   - [ ] Support to set default params
   - [ ] Support to set default headers
