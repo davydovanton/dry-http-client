@@ -4,12 +4,15 @@ module Dry
   module Http
     module Client
       class Base
+        attr_reader :host
+
         def initialize(host, options)
           @host = host
           @options = options
         end
 
-        def get(options = {})
+        def get(url, options = {})
+          Dry::Http::Client::Request::Get.new.call(host + url, options)
         end
 
         def post(options = {})
