@@ -11,16 +11,22 @@ module Dry
           include Dry::Monads::Try::Mixin
           include Dry::Monads::Do.for(:call)
 
-          def call(url, options)
-            uri = yield parse_url(url)
+          def call(url, params: {}, **options)
+            uri = yield parse_url(url, params)
             request = Net::HTTP::Get.new(uri.request_uri)
+            request.set_form_data(params)
+
             send_request(uri, request)
           end
 
         private
 
-          def parse_url(url)
-            Try(URI::InvalidURIError) { URI.parse(url) }
+          def parse_url(url, params)
+            Try(URI::InvalidURIError) do
+              uri = URI.parse(url)
+              uri.query = URI.encode_www_form(params)
+              uri
+            end
           end
 
           def send_request(uri, request)
