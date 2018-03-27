@@ -9,10 +9,11 @@ module Dry
         def initialize(host, options)
           @host = host
           @options = options
+          @get_request = Dry::Http::Client::Request::Get.new
         end
 
         def get(url, options = {})
-          Dry::Http::Client::Request::Get.new.call(host + url, options)
+          @get_request.call(host + url, options)
         end
 
         def post(options = {})
