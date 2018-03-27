@@ -4,9 +4,10 @@
   - [ ] Support to set port and timeouts values
   - [ ] Support to set default params
   - [ ] Support to set default headers
+  - [ ] Wrapper for het result, with `to_json` and `to_result` methods
 
 - [ ] GET request
-  - [ ] Allow to use params
+  - [x] Allow to use params
   - [ ] Allow to use headers
   - [x] Wrap result to dry-result monad
   - [x] Wrap URI parse to dry-try monad
