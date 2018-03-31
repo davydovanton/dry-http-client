@@ -1,6 +1,6 @@
 # Dry::Http::Client
 
-**Proof of Concept**
+**Proof of Concept**, see full todo list in [TODO.md](https://github.com/davydovanton/dry-http-client/blob/master/TODO.md).
 
 Fundctional HTTP client based on dry stack. Inspired by [serradura/request_via](https://github.com/serradura/request_via)
 
