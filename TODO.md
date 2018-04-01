@@ -2,10 +2,10 @@
 
 - [ ] Client
   - [x] Allow to use base url
+  - [x] Support to set default params
   - [ ] Support to set port and timeouts values
-  - [ ] Support to set default params
   - [ ] Support to set default headers
-  - [ ] Wrapper for het result, with `to_json` and `to_result` methods
+  - [ ] Wrapper for get result, with `to_json` and `to_result` methods
 
 - [ ] GET request
   - [x] Allow to use params
