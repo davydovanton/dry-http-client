@@ -12,7 +12,7 @@
   - [ ] Allow to use headers
   - [x] Wrap result to dry-result monad
   - [x] Wrap URI parse to dry-try monad
-  - [ ] Wrap request to try monad
+  - [x] Wrap request to try monad
 
 - [ ] POST request
   - [ ] Allow to use params
