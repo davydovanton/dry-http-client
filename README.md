@@ -1,3 +1,5 @@
+# NOT MAINTAINED
+
 # Dry::Http::Client
 
 **Proof of Concept**, see full todo list in [TODO.md](https://github.com/davydovanton/dry-http-client/blob/master/TODO.md).
