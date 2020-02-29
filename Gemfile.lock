@@ -22,7 +22,7 @@ GEM
       dry-equalizer
     hashdiff (0.3.7)
     public_suffix (3.0.2)
-    rake (10.5.0)
+    rake (13.0.1)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -49,7 +49,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   dry-http-client!
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec
   vcr
   webmock
